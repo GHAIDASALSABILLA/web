@@ -1,6 +1,6 @@
 <?php
 include 'template/header.php';
-include 'template/side.php';
+include 'template/sidebar.php';
 
 require 'koneksi.php';
 
@@ -66,8 +66,8 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
                     <?php
                     foreach ($dataProdi as $data) {
                       ?>
-                      <option id="<?php echo $data['nama_prodi'] ?>" value="<?php echo $data['id_prodi'] ?>">
-                        <?php echo $data['nama_prodi'] ?>
+                      <option id="<?php echo $data['Nama_Prodi'] ?>" value="<?php echo $data['ID_Prodi'] ?>">
+                        <?php echo $data['Nama_Prodi'] ?>
                       </option>
                       <?php
                     }

@@ -1,7 +1,7 @@
 <?php
 require 'koneksi.php';
 
-$nim = $_GET['nim'];
+$nim = $_GET['NIM'];
 $query ="DELETE FROM mahasiswa WHERE nim='$nim'";
 
 

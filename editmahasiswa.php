@@ -1,9 +1,9 @@
 <?php
 include 'template/header.php';
-include 'template/side.php';
+include 'template/sidebar.php';
 require 'koneksi.php';
 
-$nim = $_GET['nim'];
+$nim = $_GET['NIM'];
 
 $query = "SELECT * FROM mahasiswa WHERE NIM='$nim'";
 $hasil = mysqli_query($conn, $query);
@@ -58,16 +58,16 @@ while ($baris = mysqli_fetch_assoc($hasilProdi)) {
             <!-- form start -->
             <form action="editaksimahasiswa.php" method="post" enctype="multipart/form-data">
               <input type='hidden' name='nimlama' id='nimlama' value="<?php echo $nim ?>" />
-              <input type='hidden' name='fotolama' id='fotolama' value="<?php echo $data['foto'] ?>" />
+              <input type='hidden' name='fotolama' id='fotolama' value="<?php echo $data['Foto'] ?>" />
               <div class="card-body">
                 <div class="form-group">
-                  <label for="nim">NIM</label>
-                  <input type="text" name="nim" class="form-control" id="nim" value="<?php echo $data['nim'] ?>">
+                  <label for="NIM">NIM</label>
+                  <input type="text" name="NIM" class="form-control" id="NIM" value="<?php echo $data['NIM'] ?>">
                 </div>
                 <div class="form-group">
                   <label for="namamahasiswa">Nama Mahasiswa</label>
                   <input type="text" name="namamahasiswa" class="form-control" id="namamahasiswa"
-                    value="<?php echo $data['nama'] ?>">
+                    value="<?php echo $data['Nama'] ?>">
                 </div>
                 <div class="form-group">
                   <label for="namaprodi">Prodi</label>
@@ -75,8 +75,8 @@ while ($baris = mysqli_fetch_assoc($hasilProdi)) {
                     <?php
                     foreach ($dataProdi as $prodi) {
                       ?>
-                      <option id="<?php echo $prodi['nama_prodi'] ?>" value="<?php echo $prodi['id_prodi'] ?>">
-                        <?php echo $prodi['nama_prodi'] ?>
+                      <option id="<?php echo $prodi['Nama_Prodi'] ?>" value="<?php echo $prodi['ID_Prodi'] ?>">
+                        <?php echo $prodi['Nama_Prodi'] ?>
                       </option>
                       <?php
                     }
@@ -86,12 +86,12 @@ while ($baris = mysqli_fetch_assoc($hasilProdi)) {
                 <div class="form-group">
                   <label for="nomorhp">Nomor HP</label>
                   <input type="text" name="nomorhp" class="form-control" id="nomorhp"
-                    value="<?php echo $data['no_hp'] ?>">
+                    value="<?php echo $data['No_Hp'] ?>">
                 </div>
                 <div class="form-group">
                   <label for="alamat">Alamat</label>
                   <input type="text" name="alamat" class="form-control" id="alamat"
-                    value="<?php echo $data['alamat'] ?>">
+                    value="<?php echo $data['Alamat'] ?>">
                 </div>
                 <div class="form-group">
                   <label for="photo">Foto</label><br>
