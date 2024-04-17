@@ -1,28 +1,31 @@
 <?php
 require 'koneksi.php';
-$id =$_POST['ID_Prodi'];
+
+$id = $_POST['id_prodi'];
 $prodi = $_POST['namaprodi'];
 
-$query ="UPDATE prodi SET nama_prodi='$prodi' WHERE ID_Prodi='$id'";
+//echo 'nama prodinya adalah: ' . $prodi ;
 
-// echo $query;
-// die;
+//$query = "INSERT INTO prodi (Nama_Prodi) VALUES ('$prodi')";
+
+$query = "UPDATE prodi SET nama_prodi='$prodi' WHERE id_prodi =$id ";
+
 mysqli_query($conn, $query);
 
-if(mysqli_affected_rows($conn) > 0 ) {
+if (mysqli_affected_rows($conn) > 0) {
     echo "
             <script>
-            alert('Data Berhasil Diubah');
+            alert('Data Berhasil Ditambahkan');
             document.location.href='prodi.php';
-            </script>  
-            ";
+            </script>
+    ";
 } else {
     echo "
     <script>
-    alert('Data Gagal Diubah');
-    </script>  
-    ";
-echo mysqli_error($conn);
-};
-
+    alert ('Data gagal ditambahkan');
+    </script>
+";
+    echo mysqli_error($conn);
+}
+;
 ?>

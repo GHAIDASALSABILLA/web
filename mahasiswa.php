@@ -3,7 +3,7 @@ include 'template/header.php';
 include 'template/sidebar.php';
 require 'koneksi.php';
 
-$query = "SELECT * FROM mahasiswa JOIN prodi ON mahasiswa.id_prodi = prodi.id_prodi";
+$query = "SELECT * FROM mahasiswa JOIN prodi ON mahasiswa.id_Prodi = prodi.ID_Prodi";
 $hasil = mysqli_query($conn, $query);
 
 $data = [];

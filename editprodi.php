@@ -1,17 +1,17 @@
-<?php 
-require 'koneksi.php';
+<?php
 include 'template/header.php';
 include 'template/sidebar.php';
+require 'koneksi.php';
 
 $id = $_GET['id_prodi'];
 
-$query= "SELECT * FROM prodi WHERE id_prodi=$id";
+$query = "SELECT * FROM prodi WHERE id_prodi=$id";
 $hasil = mysqli_query($conn, $query);
 
 $data = mysqli_fetch_assoc($hasil);
 
-
 ?>
+
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -20,11 +20,12 @@ $data = mysqli_fetch_assoc($hasil);
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Edit Program Studi</h1>
+          <h1 class="m-0">Data Prodi</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item active"></li>
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Data Program Studi</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -34,89 +35,59 @@ $data = mysqli_fetch_assoc($hasil);
 
   <!-- Main content -->
   <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <!-- left column -->
-          <div class="col-md-12">
-            <!-- jquery validation -->
-            <div class="card card-warning">
-              <div class="card-header">
-                <h3 class="card-title">Edit Data Prodi</h3>
+    <div class="container-fluid">
+
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+          <!-- jquery validation -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Edit Program Studi</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form action="editaksiprodi.php" method="post">
+              <div class="card-body">
+                <div class="form-group">
+                  <input type="hidden" name="id_prodi" class="form-control" value="<?= $data['ID_Prodi'] ?>">
+                  <label for="namaprodi">Nama Program Studi</label>
+                  <input type="text" name="namaprodi" class="form-control" id="namaprodi"
+                    value="<?= $data['Nama_Prodi'] ?>">
+                </div>
               </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form action="editaksiprodi.php" method="POST">
-                <div class="card-body">
-                  <div class="form-group">
-                    <input type="hidden" name="ID_Prodi" value="<?= $data['ID_Prodi'] ?>">
-                    <label for="prodi1">Nama Prodi</label>
-                    <input type="text" name="namaprodi" class="form-control" id="prodi1" value="<?= $data['Nama_Prodi'] ?>">
-                  </div>
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-warning">Submit</button>
-                </div>
-              </form>
-            </div>
-            <!-- /.card -->
-            </div>
-          <!--/.col (left) -->
-          <!-- right column -->
-          <div class="col-md-6">
-
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
           </div>
-          <!--/.col (right) -->
+          <!-- /.card -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </section>
-  <!-- /.content -->
+        <!--/.col (left) -->
+        <!-- right column -->
+        <div class="col-md-6">
+
+        </div>
+        <!--/.col (right) -->
+      </div>
+      <!-- /.row -->
+      <!-- Main row -->
+      <div class="row">
+        <!-- Left col -->
+        <section class="col-lg-7 connectedSortable">
+
+          <!-- /.card-footer -->
+      </div>
+
+  </section>
+  <!-- right col -->
 </div>
-
-
-<!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
-  <!-- Control sidebar content goes here -->
-</aside>
-<!-- /.control-sidebar -->
+<!-- /.row (main row) -->
+</div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
 </div>
-<!-- ./wrapper -->
-
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="plugins/moment/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="plugins/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard.js"></script>
-</body>
-
-</html>
+<?php
+include 'template/footer.php';
+?>

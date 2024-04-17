@@ -61,8 +61,8 @@ while ($baris = mysqli_fetch_assoc($hasilProdi)) {
               <input type='hidden' name='fotolama' id='fotolama' value="<?php echo $data['Foto'] ?>" />
               <div class="card-body">
                 <div class="form-group">
-                  <label for="NIM">NIM</label>
-                  <input type="text" name="NIM" class="form-control" id="NIM" value="<?php echo $data['NIM'] ?>">
+                  <label for="nim">NIM</label>
+                  <input type="text" name="nim" class="form-control" id="nim" value="<?php echo $data['NIM'] ?>">
                 </div>
                 <div class="form-group">
                   <label for="namamahasiswa">Nama Mahasiswa</label>
