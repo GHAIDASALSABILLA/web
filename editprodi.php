@@ -1,7 +1,9 @@
 <?php
+session_start();
+require 'koneksi.php';
+ceklogin();
 include 'template/header.php';
 include 'template/sidebar.php';
-require 'koneksi.php';
 
 $id = $_GET['id_prodi'];
 
@@ -50,10 +52,10 @@ $data = mysqli_fetch_assoc($hasil);
             <form action="editaksiprodi.php" method="post">
               <div class="card-body">
                 <div class="form-group">
-                  <input type="hidden" name="id_prodi" class="form-control" value="<?= $data['ID_Prodi'] ?>">
-                  <label for="namaprodi">Nama Program Studi</label>
+                  <input type="hidden" name="id_prodi" class="form-control" value="<?= $data['id_prodi'] ?>">
+                  <label for="namaprodi">nama Program Studi</label>
                   <input type="text" name="namaprodi" class="form-control" id="namaprodi"
-                    value="<?= $data['Nama_Prodi'] ?>">
+                    value="<?= $data['nama_prodi'] ?>">
                 </div>
               </div>
               <!-- /.card-body -->

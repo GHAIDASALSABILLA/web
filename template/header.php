@@ -50,7 +50,7 @@
     <ul class="navbar-nav ml-auto">
     
       <li class="nav-item">
-        <a class="nav-link" href="lpgout.php">
+        <a class="nav-link" href="logout.php">
          Logout<i class="fas fa-sign-out-alt"></i> 
         </a>
       </li>

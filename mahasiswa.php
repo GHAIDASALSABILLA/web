@@ -1,9 +1,14 @@
 <?php
+
+session_start();
+require 'koneksi.php';
+ceklogin();
 include 'template/header.php';
 include 'template/sidebar.php';
-require 'koneksi.php';
 
-$query = "SELECT * FROM mahasiswa JOIN prodi ON mahasiswa.id_Prodi = prodi.ID_Prodi";
+
+
+$query = "SELECT * FROM mahasiswa JOIN prodi ON mahasiswa.id_prodi = prodi.id_prodi";
 $hasil = mysqli_query($conn, $query);
 
 $data = [];
@@ -54,10 +59,10 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Nim</th>
-                    <th>Nama</th>
+                    <th>nim</th>
+                    <th>nama</th>
                     <th>prodi</th>
-                    <th>No Handphone</th>
+                    <th>no handphone</th>
                     <th>alamat</th>
                     <th>foto</th>
                     <th>aksi</th>
@@ -70,14 +75,14 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
                   ?>
                     <tr>
                       <td><?php echo $i++ ?></td>
-                      <td><?php echo $d['NIM'] ?></td>
-                      <td><?php echo $d['Nama'] ?>
-                      <td><?php echo $d['Nama_Prodi'] ?>
-                      <td><?php echo $d['No_Hp'] ?>
-                      <td><?php echo $d['Alamat'] ?></td>
-                      <td> <img src="dist/img/<?php echo $d['Foto'] ?>" width="50px" height="50px" /> </td>
-                      <td><a href="editmahasiswa.php?NIM=<?= $d['NIM'] ?>" class="btn btn-warning" >Edit</a>
-                    <a href="hapusmahasiswa.php?NIM=<?= $d['NIM'] ?>" class="btn btn-danger" >Hapus</a>
+                      <td><?php echo $d['nim'] ?></td>
+                      <td><?php echo $d['nama'] ?>
+                      <td><?php echo $d['nama_prodi'] ?>
+                      <td><?php echo $d['no_hp'] ?>
+                      <td><?php echo $d['alamat'] ?></td>
+                      <td> <img src="dist/img/<?php echo $d['foto'] ?>" width="50px" height="50px" /> </td>
+                      <td><a href="editmahasiswa.php?nim=<?= $d['nim'] ?>" class="btn btn-warning" >Edit</a>
+                    <a href="hapusmahasiswa.php?nim=<?= $d['nim'] ?>" class="btn btn-danger" >Hapus</a>
                     </td>
                     </tr>
                   <?php } ?>

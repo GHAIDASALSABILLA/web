@@ -1,4 +1,8 @@
 <?php
+session_start();
+require 'koneksi.php';
+ceklogin();
+
 require 'koneksi.php';
 
 $prodi = $_POST['namaprodi'];

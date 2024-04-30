@@ -1,12 +1,13 @@
 <?php
+session_start();
 require 'koneksi.php';
-
+ceklogin();
 $id = $_POST['id_prodi'];
 $prodi = $_POST['namaprodi'];
 
 //echo 'nama prodinya adalah: ' . $prodi ;
 
-//$query = "INSERT INTO prodi (Nama_Prodi) VALUES ('$prodi')";
+//$query = "INSERT INTO prodi (nama) VALUES ('$prodi')";
 
 $query = "UPDATE prodi SET nama_prodi='$prodi' WHERE id_prodi =$id ";
 

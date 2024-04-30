@@ -11,10 +11,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="dist/img/<?= $_SESSION['foto']; ?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">ghaida.gd</a>
+          <a href="#" class="d-block"><?= $_SESSION['nama']; ?></a>
         </div>
       </div>
 
@@ -23,18 +23,17 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-
-               <li class="nav-item">
+        <li class="nav-item">
             <a href="index.php" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+              <i class="nav-icon far fa-address-book"></i>
               <p>
                 Dashboard
               </p>
             </a>
           </li>
-          <li class="nav-item">
+        <li class="nav-item">
             <a href="mahasiswa.php" class="nav-link">
-              <i class="nav-icon far fa-calendar-alt"></i>
+              <i class="nav-icon far fa-address-book"></i>
               <p>
                 Data Mahasiswa
               </p>
@@ -44,7 +43,7 @@
             <a href="prodi.php" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-               Data Prodi
+                Data Prodi
               </p>
             </a>
           </li>

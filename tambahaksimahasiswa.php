@@ -1,34 +1,56 @@
-<?php
+<?php 
+
 require 'koneksi.php';
 
 $nim = $_POST['nim'];
-$nama = $_POST['namamahasiswa'];
-$prodi = $_POST['namaprodi'];
-$nomorhp = $_POST['nomorhp'];
+$nama = $_POST['nama'];
+$prodi = $_POST['prodi'];
+$nohp = $_POST['nohp'];
 $alamat = $_POST['alamat'];
-$namaFile = $_FILES['photo']['name'];
-$tmpName = $_FILES['photo']['tmp_name'];
-move_uploaded_file($tmpName, "C:/xampp/htdocs/web/dist/img/" . $namaFile);
 
+$namafile = $_FILES['foto']['name'];
+$tmpname = $_FILES['foto']['tmp_name'];
 
-$query = 'INSERT INTO mahasiswa (NIM, Nama, No_Hp, Alamat, Password, id_Prodi, Foto)
-             VALUES ("' . $nim . '", "' . $nama . '", "' . $nomorhp . '", "' . $alamat . '", "NULL", "' . $prodi . '", "' .$namaFile. '")';
+$ekstensifoto = explode('.', $namafile);
+$ekstensifoto = strtolower(end($ekstensifoto));
+$ekstensiTipe = ['jpg', 'png', 'jpeg'];
+
+if (!in_array($ekstensifoto, $ekstensiTipe)) {
+    echo "
+    <script>
+        alert('File yang anda upload bukan file gambar');
+        document.location.href='tambahmahasiswa.php';
+    </script>
+    ";
+}
+
+$namaFileBaru = $nim;
+$namaFileBaru .= '.';
+$namaFileBaru .= $ekstensifoto;
+
+$password = password_hash($nim,PASSWORD_DEFAULT);
+
+$query = "INSERT INTO mahasiswa (nim,nama,no_hp,alamat,id_prodi, foto, password) VALUES ('$nim', '$nama', '$nohp', '$alamat', '$prodi', '$namaFileBaru', '$password')";
+
+move_uploaded_file($tmpname, "dist/img/" . $namaFileBaru);
 
 mysqli_query($conn, $query);
 
 if (mysqli_affected_rows($conn) > 0) {
     echo "
             <script>
-            alert('Data Berhasil Ditambahkan');
-            document.location.href='mahasiswa.php';
+                alert('Data berhasil ditambahkan');
+                document.location.href='mahasiswa.php';
             </script>
     ";
-} else {
+}else {
     echo "
-    <script>
-    alert ('Data gagal ditambahkan');
-    </script>
-";
+        <script>
+        alert ('Data gagal ditambahkan');
+        </script>
+    ";
     echo mysqli_error($conn);
-}
-;
+    };
+
+
+?>

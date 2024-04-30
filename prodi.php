@@ -1,6 +1,10 @@
 <?php
+session_start();
+require 'koneksi.php';
+ceklogin();
 include 'template/header.php';
 include 'template/sidebar.php';
+
 
 $servername = "localhost";
 $database = "poliban";
@@ -60,7 +64,7 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Nama Prodi</th>
+                    <th>nama prodi</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -71,9 +75,9 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
                   ?>
                     <tr>
                       <td><?php echo $i++ ?></td>
-                      <td><?php echo $d['Nama_Prodi'] ?></td>
-                      <td><a href="editprodi.php?id_prodi=<?= $d['ID_Prodi'] ?>" class="btn btn-danger">Edit</a>
-                        <a href="hapusprodi.php?id_prodi=<?= $d['ID_Prodi'] ?>" class="btn btn-danger">Hapus</a>
+                      <td><?php echo $d['nama_prodi'] ?></td>
+                      <td><a href="editprodi.php?id_prodi=<?= $d['id_prodi'] ?>" class="btn btn-danger">Edit</a>
+                        <a href="hapusprodi.php?id_prodi=<?= $d['id_prodi'] ?>" class="btn btn-danger">Hapus</a>
                       </td>
                     </tr>
                   <?php

@@ -1,4 +1,7 @@
 <?php
+session_start();
+require 'koneksi.php';
+ceklogin();
 include 'template/header.php';
 include 'template/sidebar.php';
 
@@ -56,7 +59,7 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
               <form action="tambahaksiprodi.php" method="post">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="nama">Nama Prodi</label>
+                    <label for="nama">nama prodi</label>
                     <input type="text" name="namaprodi" class="form-control" id="nama" placeholder="Masukkan Nama Prodi">
                   </div>
                 <!-- /.card-body -->
