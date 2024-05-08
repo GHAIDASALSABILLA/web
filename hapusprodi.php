@@ -2,6 +2,7 @@
 session_start();
 require 'koneksi.php';
 ceklogin();
+cekadmin();
 
 $id = $_GET['id_prodi'];
 $query = "DELETE FROM Prodi WHERE  id_prodi='$id'";

@@ -4,7 +4,6 @@ require 'koneksi.php';
 ceklogin();
 include 'template/header.php';
 include 'template/sidebar.php';
-
 ?>
 
   <!-- Content Wrapper. Contains page content -->

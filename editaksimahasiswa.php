@@ -2,6 +2,7 @@
 session_start();
 require 'koneksi.php';
 ceklogin();
+cekadmin();
 $nim = $_POST['nim'];
 $nama = $_POST['nama'];
 $prodi = $_POST['prodi'];

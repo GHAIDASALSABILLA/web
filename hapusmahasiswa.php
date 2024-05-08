@@ -2,6 +2,7 @@
 session_start();
 require 'koneksi.php';
 ceklogin();
+cekadmin();
 
 $nim = $_GET['nim'];
 $query ="DELETE FROM mahasiswa WHERE nim='$nim'";

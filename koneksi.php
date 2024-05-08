@@ -11,4 +11,10 @@ function ceklogin() {
         header("Location: login.php");
     }
 }
+
+function cekadmin() {
+    if ($_SESSION['hakakses'] !='admin'){
+        header('Location: index.php');
+    }
+}
 ?>

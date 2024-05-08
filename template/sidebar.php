@@ -28,25 +28,30 @@
               <i class="nav-icon far fa-address-book"></i>
               <p>
                 Dashboard
+                <span class="badge badge-info right">2</span>
               </p>
             </a>
           </li>
+          <?php if ($_SESSION['hakakses'] == 'admin') {?>
+          <li class="nav-item">
+            <a href="mahasiswa.php" class="nav-link">
+              <i class="nav-icon far-calender-alt"></i>
+              <p>
+              Data Mahasiswa
+              <span class="badge badge-info right">2</span>
+          </p>
+            </a>
+          </li>
+        <?php } ?>
         <li class="nav-item">
             <a href="mahasiswa.php" class="nav-link">
-              <i class="nav-icon far fa-address-book"></i>
-              <p>
-                Data Mahasiswa
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="prodi.php" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-                Data Prodi
+               Data Program Studi
               </p>
             </a>
           </li>
+        
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

@@ -55,7 +55,9 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
               <h3 class="card-title">Data Program Studi</h3>
 
               <div class="card-tools">
+                <?php if ($_SESSION['hakakses'] =='admin') : ?>
                 <a href = "tambahprodi.php" class="btn btn-primary">Tambah</a>
+                  <?php endif; ?>
               </div>
             </div>
             <!-- /.card-header -->
@@ -64,7 +66,7 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>nama prodi</th>
+                    <th>Nama prodi</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
@@ -76,8 +78,11 @@ while ($baris = mysqli_fetch_assoc($hasil)) {
                     <tr>
                       <td><?php echo $i++ ?></td>
                       <td><?php echo $d['nama_prodi'] ?></td>
-                      <td><a href="editprodi.php?id_prodi=<?= $d['id_prodi'] ?>" class="btn btn-danger">Edit</a>
+                      <td>
+                        <?php if ($_SESSION['hakakses'] == 'admin') : ?>
+                        <a href="editprodi.php?id_prodi=<?= $d['id_prodi'] ?>" class="btn btn-danger">Edit</a>
                         <a href="hapusprodi.php?id_prodi=<?= $d['id_prodi'] ?>" class="btn btn-danger">Hapus</a>
+                      <?php endif; ?>
                       </td>
                     </tr>
                   <?php
